@@ -46,7 +46,7 @@ ORDER BY Rented DESC LIMIT 5;
 -- zadanie 4 j
 SELECT customer.first_name, customer.surname, SUM(amount_in_PLN) as Amount FROM rental_transaction
 JOIN customer ON customer.customer_id = rental_transaction.customer_id
-WHERE year(rental_transaction.date_to) = 2017
+WHERE year(rental_transaction.date_to) = year(now())
 GROUP BY rental_transaction.customer_id
 ORDER BY Amount DESC LIMIT 3;
 
