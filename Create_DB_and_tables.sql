@@ -16,10 +16,10 @@ CREATE TABLE customer (
     first_name varchar(100) NOT NULL,
     surname varchar(100) NOT NULL,
     address_id int NOT NULL,
-    phone varchar(12) NOT NULL,
+    phone varchar(20) NOT NULL,
     email varchar(50) NOT NULL,
     date_of_birth DATE,
-    credit_card_no varchar(16),
+    credit_card_no varchar(20),
     PRIMARY KEY (customer_id),
     FOREIGN KEY (address_id) REFERENCES address(address_id)
 );
@@ -36,7 +36,7 @@ CREATE TABLE branch (
 CREATE TABLE employee (
 	employee_id int NOT NULL AUTO_INCREMENT,
     branch_id int NOT NULL,
-    work_position varchar(100) NOT NULL,
+    work_position ENUM('manager', 'bookkeeper', 'salesman') NOT NULL,
     first_name varchar(100) NOT NULL,
     surname varchar(100) NOT NULL,
     address_id int NOT NULL,
@@ -63,7 +63,7 @@ CREATE TABLE car2employee (
     employee_id int NOT NULL,
     car_id int NOT NULL,
     valid_from DATE NOT NULL,
-    valid_until DATE NOT NULL,
+    valid_until DATE,
     PRIMARY KEY (relation_id),
     FOREIGN KEY (employee_id) REFERENCES employee(employee_id),
     FOREIGN KEY (car_id) REFERENCES car(car_id)
