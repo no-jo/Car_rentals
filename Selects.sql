@@ -1,3 +1,5 @@
+USE car_rental_company;
+
 -- zadanie 4 a (zmiana za 25 na 30)
 SELECT * FROM employee
 WHERE datediff(now(), employee.date_of_birth)/365 > 30;

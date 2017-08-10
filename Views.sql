@@ -1,3 +1,5 @@
+USE car_rental_company;
+
 -- zadanie 3 a
 CREATE VIEW customer_rentals AS
 SELECT customer.first_name AS 'First name', customer.surname AS 'Last name', rental_transaction.date_from AS 'Rent', 
