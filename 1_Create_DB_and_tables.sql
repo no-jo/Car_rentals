@@ -84,5 +84,6 @@ CREATE TABLE rental_transaction (
     FOREIGN KEY (customer_id) REFERENCES customer(customer_id),
     FOREIGN KEY (employee_id) REFERENCES employee(employee_id),
     FOREIGN KEY (branch_from) REFERENCES branch(branch_id),
-    FOREIGN KEY (branch_to) REFERENCES branch(branch_id)
+    FOREIGN KEY (branch_to) REFERENCES branch(branch_id),
+    FOREIGN KEY (car_id) REFERENCES car(car_id)
 );

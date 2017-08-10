@@ -8,13 +8,17 @@ JOIN customer ON customer.customer_id = rental_transaction.customer_id
 JOIN car ON car.car_id = rental_transaction.car_id; 
 
 -- zadanie 3 b 1
-CREATE VIEW distinct_cars_of_customer AS
-SELECT DISTINCT customer_id, car_id FROM rental_transaction;
+CREATE VIEW distinct_brands_of_customer AS
+SELECT DISTINCT r.customer_id, r.car_id, car.brand FROM rental_transaction AS r JOIN car ON r.car_id = car.car_id;
 
-	-- pkt 4 h po stworzeniu view
-	SELECT customer_id, COUNT(car_id) AS no_different_cars FROM distinct_cars_of_customer
-	GROUP BY customer_id
-	ORDER BY no_different_cars DESC LIMIT 3;
+	-- pkt 4 h po stworzeniu view 
+		SELECT 
+			customer_id, COUNT(*) AS no_different_cars
+		FROM
+			distinct_brands_of_customer
+		GROUP BY customer_id
+		ORDER BY no_different_cars DESC
+		LIMIT 3;
 
 -- zadanie 3 b 2
 CREATE VIEW year_customer_payment AS
